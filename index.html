@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don Humberto - Materiales para la Construccion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="barra-navegacion">
+    <div class="contenedor contenedor-navegacion">
+      <a href="#" class="marca">
+        <i class="fa-solid fa-warehouse icono-marca"></i>
+        <div class="texto-marca">
+          <span class="titulo-marca">DON HUMBERTO</span>
+          <span class="subtitulo-marca">MATERIALES PARA LA CONSTRUCCION</span>
+        </div>
+      </a>
+      <nav class="enlaces-navegacion">
+        <a href="#inicio" class="activo">INICIO</a>
+        <a href="#productos">PRODUCTOS</a>
+        <a href="#servicios">SERVICIOS</a>
+        <a href="#nosotros">NOSOTROS</a>
+        <a href="#contacto">CONTACTO</a>
+      </nav>
+      <div class="acciones-navegacion">
+        <button class="boton boton-oscuro boton-login" onclick="abrirModal('modal-login')">
+          <i class="fa-solid fa-user"></i> INICIAR SESION
+        </button>
+      </div>
+    </div>
+  </header>
+  <section id="inicio" class="seccion-principal">
+    <div class="superposicion-principal"></div>
+    <div class="contenedor contenedor-principal">
+      <div class="contenido-principal">
+        <h1>TODO LO QUE<br>NECESITAS, ACA.</h1>
+        <p>Los mejores materiales para tu obra,<br>al mejor precio y con la mejor atencion.</p>
+        <div class="botones-principales">
+          <a href="#productos" class="boton boton-primario">
+            <i class="fa-solid fa-cart-shopping"></i> VER PRODUCTOS
+          </a>
+          <a href="#contacto" class="boton boton-borde">
+            <i class="fa-solid fa-phone"></i> CONTACTANOS
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="servicios" class="seccion-caracteristicas">
+    <div class="contenedor cuadricula-caracteristicas">
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>CALIDAD GARANTIZADA</h3>
+        <p>Trabajamos con las mejores marcas del mercado.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-truck-fast"></i></div>
+        <h3>ENTREGA A DOMICILIO</h3>
+        <p>Llevamos tus materiales hasta tu obra.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-tag"></i></div>
+        <h3>MEJORES PRECIOS</h3>
+        <p>Precios competitivos y promociones permanentes.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-headset"></i></div>
+        <h3>ASESORAMIENTO</h3>
+        <p>Te ayudamos a elegir lo que tu obra necesita.</p>
+      </div>
+    </div>
+  </section>
+  <section id="modulos" class="seccion-modulos">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>GESTIONA TODO DESDE NUESTRA PLATAFORMA</h2>
+        <div class="divisor-encabezado"></div>
+      </div>
+      <div class="cuadricula-modulos">
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-azul"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <h3>STOCK</h3>
+          <p>Controla ingresos, egresos y niveles de stock.</p>
+          <button class="boton boton-modulo boton-azul" onclick="abrirModal('modal-stock')">IR AL MODULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-verde"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h3>VENTAS</h3>
+          <p>Registra ventas, clientes y comprobantes.</p>
+          <button class="boton boton-modulo boton-verde" onclick="abrirModal('modal-ventas')">IR AL MODULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-violeta"><i class="fa-solid fa-users"></i></div>
+          <h3>PERSONAL</h3>
+          <p>Administra la informacion del personal.</p>
+          <button class="boton boton-modulo boton-violeta" onclick="abrirModal('modal-personal')">IR AL MODULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-amarillo"><i class="fa-solid fa-truck"></i></div>
+          <h3>LOGISTICA</h3>
+          <p>Gestiona pedidos, entregas y estados.</p>
+          <button class="boton boton-modulo boton-amarillo" onclick="abrirModal('modal-logistica')">IR AL MODULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-celeste"><i class="fa-solid fa-chart-column"></i></div>
+          <h3>REPORTES</h3>
+          <p>Genera informes y toma mejores decisiones.</p>
+          <button class="boton boton-modulo boton-celeste" onclick="abrirModal('modal-reportes')">IR AL MODULO</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="seccion-estadisticas">
+    <div class="contenedor cuadricula-estadisticas">
+      <div class="item-estadistica">
+        <i class="fa-solid fa-boxes-stacked icono-estadistica"></i>
+        <div class="info-estadistica">
+          <span class="numero-estadistica">1.248</span>
+          <span class="etiqueta-estadistica">PRODUCTOS REGISTRADOS</span>
+        </div>
+      </div>
+      <div class="item-estadistica">
+        <i class="fa-solid fa-cart-shopping icono-estadistica"></i>
+        <div class="info-estadistica">
+          <span class="numero-estadistica">356</span>
+          <span class="etiqueta-estadistica">VENTAS ESTE MES</span>
+        </div>
+      </div>
+      <div class="item-estadistica">
+        <i class="fa-solid fa-users icono-estadistica"></i>
+        <div class="info-estadistica">
+          <span class="numero-estadistica">10</span>
+          <span class="etiqueta-estadistica">EMPLEADOS ACTIVOS</span>
+        </div>
+      </div>
+      <div class="item-estadistica">
+        <i class="fa-solid fa-truck icono-estadistica"></i>
+        <div class="info-estadistica">
+          <span class="numero-estadistica">23</span>
+          <span class="etiqueta-estadistica">ENTREGAS PENDIENTES</span>
+        </div>
+      </div>
+      <div class="item-estadistica">
+        <i class="fa-solid fa-file-lines icono-estadistica"></i>
+        <div class="info-estadistica">
+          <span class="numero-estadistica">12</span>
+          <span class="etiqueta-estadistica">REPORTES GENERADOS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer id="contacto" class="pie-pagina">
+    <div class="contenedor cuadricula-pie">
+      <!-- Columna 1: Marca -->
+      <div class="columna-pie columna-marca">
+        <div class="marca">
+          <i class="fa-solid fa-warehouse icono-marca"></i>
+          <div class="texto-marca">
+            <span class="titulo-marca">DON HUMBERTO</span>
+            <span class="subtitulo-marca">MATERIALES PARA LA CONSTRUCCION</span>
+          </div>
+        </div>
+        <p class="descripcion-pie">Mas de 20 anos brindando soluciones en materiales para la construccion.</p>
+      </div>
+      <div class="columna-pie">
+        <h4>CONTACTO</h4>
+        <ul class="lista-contacto">
+          <li><i class="fa-solid fa-location-dot"></i> Av. Colon 1234, Cordoba Capital</li>
+          <li><i class="fa-solid fa-phone"></i> (351) 123-4567</li>
+          <li><i class="fa-solid fa-envelope"></i> info@donhumberto.com.ar</li>
+        </ul>
+      </div>
+      <div class="columna-pie">
+        <h4>ENLACES RAPIDOS</h4>
+        <ul class="enlaces-pie">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="columna-pie">
+        <h4>SEGUINOS</h4>
+        <div class="enlaces-sociales">
+          <a href="#" class="icono-social"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="pie-inferior">
+      <p>&copy; 2026 Don Humberto Corralon. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <div id="modal-login" class="ventana-modal">
+    <div class="contenido-modal">
+      <span class="cerrar-modal" onclick="cerrarModal('modal-login')">&times;</span>
+      <h3>Iniciar Sesion</h3>
+      <form onsubmit="event.preventDefault(); alert('Sesion iniciada con exito'); cerrarModal('modal-login');">
+        <div class="grupo-formulario">
+          <label>Usuario</label>
+          <input type="text" placeholder="Ingrese su usuario" required>
+        </div>
+        <div class="grupo-formulario">
+          <label>Contrasena</label>
+          <input type="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="boton boton-primario boton-bloque">Ingresar</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function cerrarModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    window.onclick = function(event) {
+      if (event.target.classList.contains('ventana-modal')) {
+        event.target.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
