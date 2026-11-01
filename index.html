@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don Humberto - Materiales para la Construcción</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="barra-navegacion">
+    <div class="contenedor contenedor-navegacion">
+      <a href="#" class="marca">
+        <i class="fa-solid fa-warehouse icono-marca"></i>
+        <div class="texto-marca">
+          <span class="titulo-marca">DON HUMBERTO</span>
+          <span class="subtitulo-marca">MATERIALES PARA LA CONSTRUCCIÓN</span>
+        </div>
+      </a>
+      <nav class="enlaces-navegacion">
+        <a href="#inicio" class="activo">INICIO</a>
+        <a href="#productos">PRODUCTOS</a>
+        <a href="#servicios">SERVICIOS</a>
+        <a href="#modulos">MÓDULOS</a>
+        <a href="#contacto">CONTACTO</a>
+      </nav>
+      <div class="acciones-navegacion">
+        <button class="boton boton-borde-oscuro" onclick="abrirModal('modal-carrito')">
+          <i class="fa-solid fa-cart-shopping"></i> Carrito (<span id="contador-carrito">0</span>)
+        </button>
+        <div id="contenedor-usuario-nav">
+          <button class="boton boton-oscuro" onclick="abrirModal('modal-login')">
+            <i class="fa-solid fa-user"></i> INICIAR SESIÓN
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="inicio" class="seccion-principal">
+    <div class="superposicion-principal"></div>
+    <div class="contenedor contenedor-principal">
+      <div class="contenido-principal">
+        <h1>TODO LO QUE<br>NECESITÁS, ACÁ.</h1>
+        <p>Los mejores materiales para tu obra,<br>al mejor precio y con la mejor atención.</p>
+        <div class="botones-principales">
+          <a href="#productos" class="boton boton-primario">
+            <i class="fa-solid fa-cart-shopping"></i> VER PRODUCTOS
+          </a>
+          <a href="#contacto" class="boton boton-borde">
+            <i class="fa-solid fa-phone"></i> CONTÁCTANOS
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="servicios" class="seccion-caracteristicas">
+    <div class="contenedor cuadricula-caracteristicas">
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>CALIDAD GARANTIZADA</h3>
+        <p>Trabajamos con las mejores marcas del mercado.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-truck-fast"></i></div>
+        <h3>ENTREGA A DOMICILIO</h3>
+        <p>Llevamos tus materiales hasta tu obra.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-tag"></i></div>
+        <h3>MEJORES PRECIOS</h3>
+        <p>Precios competitivos y promociones permanentes.</p>
+      </div>
+      <div class="tarjeta-caracteristica">
+        <div class="icono-caracteristica"><i class="fa-solid fa-headset"></i></div>
+        <h3>ASESORAMIENTO</h3>
+        <p>Te ayudamos a elegir lo que tu obra necesita.</p>
+      </div>
+    </div>
+  </section>
+  <section id="productos" class="seccion-productos">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>NUESTROS PRODUCTOS</h2>
+        <div class="divisor-encabezado"></div>
+      </div>
+      <div class="filtros-productos">
+        <input type="text" id="buscador-producto" placeholder="Buscar producto..." oninput="filtrarProductos()">
+        <select id="filtro-categoria" onchange="filtrarProductos()">
+          <option value="todos">Todas las Categorías</option>
+          <option value="cemento">Cementos y Cal</option>
+          <option value="aridos">Áridos y Arena</option>
+          <option value="ladrillos">Ladrillos y Bloques</option>
+          <option value="hierros">Hierros y Mallas</option>
+        </select>
+      </div>
+      <div id="contenedor-productos" class="cuadricula-productos"></div>
+    </div>
+  </section>
+  <section id="modulos" class="seccion-modulos">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>GESTIONÁ TODO DESDE NUESTRA PLATAFORMA</h2>
+        <div class="divisor-encabezado"></div>
+      </div>
+      <div class="cuadricula-modulos">
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-azul"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <h3>STOCK</h3>
+          <p>Controlá ingresos, egresos y niveles de stock.</p>
+          <button class="boton boton-modulo boton-azul" onclick="abrirModuloAcceso('Stock')">IR AL MÓDULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-verde"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h3>VENTAS</h3>
+          <p>Registrá ventas, clientes y comprobantes.</p>
+          <button class="boton boton-modulo boton-verde" onclick="abrirModuloAcceso('Ventas')">IR AL MÓDULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-violeta"><i class="fa-solid fa-users"></i></div>
+          <h3>PERSONAL</h3>
+          <p>Administrá la información del personal.</p>
+          <button class="boton boton-modulo boton-violeta" onclick="abrirModuloAcceso('Personal')">IR AL MÓDULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-amarillo"><i class="fa-solid fa-truck"></i></div>
+          <h3>LOGÍSTICA</h3>
+          <p>Gestioná pedidos, entregas y estados.</p>
+          <button class="boton boton-modulo boton-amarillo" onclick="abrirModuloAcceso('Logística')">IR AL MÓDULO</button>
+        </div>
+        <div class="tarjeta-modulo">
+          <div class="icono-modulo icono-celeste"><i class="fa-solid fa-chart-column"></i></div>
+          <h3>REPORTES</h3>
+          <p>Generá informes y tomá mejores decisiones.</p>
+          <button class="boton boton-modulo boton-celeste" onclick="abrirModuloAcceso('Reportes')">IR AL MÓDULO</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="seccion-estadisticas">
+    <div class="contenedor cuadricula-estadisticas">
+      <div class="item-estadistica"><i class="fa-solid fa-boxes-stacked icono-estadistica"></i><div class="info-estadistica"><span class="numero-estadistica">1.248</span><span class="etiqueta-estadistica">PRODUCTOS REGISTRADOS</span></div></div>
+      <div class="item-estadistica"><i class="fa-solid fa-cart-shopping icono-estadistica"></i><div class="info-estadistica"><span class="numero-estadistica">356</span><span class="etiqueta-estadistica">VENTAS ESTE MES</span></div></div>
+      <div class="item-estadistica"><i class="fa-solid fa-users icono-estadistica"></i><div class="info-estadistica"><span class="numero-estadistica">10</span><span class="etiqueta-estadistica">EMPLEADOS ACTIVOS</span></div></div>
+      <div class="item-estadistica"><i class="fa-solid fa-truck icono-estadistica"></i><div class="info-estadistica"><span class="numero-estadistica">23</span><span class="etiqueta-estadistica">ENTREGAS PENDIENTES</span></div></div>
+      <div class="item-estadistica"><i class="fa-solid fa-file-lines icono-estadistica"></i><div class="info-estadistica"><span class="numero-estadistica">12</span><span class="etiqueta-estadistica">REPORTES GENERADOS</span></div></div>
+    </div>
+  </section>
+  <footer id="contacto" class="pie-pagina">
+    <div class="contenedor cuadricula-pie">
+      <div class="columna-pie columna-marca">
+        <div class="marca">
+          <i class="fa-solid fa-warehouse icono-marca"></i>
+          <div class="texto-marca">
+            <span class="titulo-marca">DON HUMBERTO</span>
+            <span class="subtitulo-marca">MATERIALES PARA LA CONSTRUCCIÓN</span>
+          </div>
+        </div>
+        <p class="descripcion-pie">Más de 20 años brindando soluciones en materiales para la construcción.</p>
+      </div>
+      <div class="columna-pie">
+        <h4>INFORMACIÓN DE CONTACTO</h4>
+        <ul class="lista-contacto">
+          <li><i class="fa-solid fa-location-dot"></i> Av. Colón 1234, Córdoba Capital</li>
+          <li><i class="fa-solid fa-phone"></i> (351) 123-4567</li>
+          <li><i class="fa-brands fa-whatsapp"></i> +54 9 351 987-6543</li>
+          <li><i class="fa-solid fa-envelope"></i> ventas@donhumberto.com.ar</li>
+        </ul>
+      </div>
+      <div class="columna-pie">
+        <h4>ENLACES RÁPIDOS</h4>
+        <ul class="enlaces-pie">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#modulos">Módulos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="columna-pie">
+        <h4>REDES SOCIALES</h4>
+        <div class="enlaces-sociales">
+          <a href="https://facebook.com" target="_blank" class="icono-social"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" class="icono-social"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/5493519876543" target="_blank" class="icono-social"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="pie-inferior">
+      <p>&copy; 2026 Don Humberto Corralón. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <div id="modal-login" class="ventana-modal">
+    <div class="contenido-modal">
+      <span class="cerrar-modal" onclick="cerrarModal('modal-login')">&times;</span>
+      <div class="pestanas-autenticacion">
+        <button id="tab-login" class="pestana activa" onclick="mostrarPestanaAuth('login')">Iniciar Sesión</button>
+        <button id="tab-registro" class="pestana" onclick="mostrarPestanaAuth('registro')">Registrarse</button>
+      </div>
+      <form id="form-login" onsubmit="iniciarSesion(event)">
+        <div class="grupo-formulario"><label>Usuario / Email</label><input type="text" id="login-usuario" placeholder="Ingrese su usuario o email" required></div>
+        <div class="grupo-formulario"><label>Contraseña</label><input type="password" id="login-password" placeholder="••••••••" required></div>
+        <button type="submit" class="boton boton-primario boton-bloque">Ingresar</button>
+      </form>
+      <form id="form-registro" style="display: none;" onsubmit="registrarUsuario(event)">
+        <div class="grupo-formulario"><label>Nombre Completo</label><input type="text" id="reg-nombre" placeholder="Juan Pérez" required></div>
+        <div class="grupo-formulario"><label>Usuario</label><input type="text" id="reg-usuario" placeholder="juanperez" required></div>
+        <div class="grupo-formulario"><label>Email</label><input type="email" id="reg-email" placeholder="juan@correo.com" required></div>
+        <div class="grupo-formulario"><label>Contraseña</label><input type="password" id="reg-password" placeholder="••••••••" required></div>
+        <button type="submit" class="boton boton-primario boton-bloque">Crear Cuenta</button>
+      </form>
+    </div>
+  </div>
+  <div id="modal-perfil" class="ventana-modal">
+    <div class="contenido-modal modal-ancho">
+      <span class="cerrar-modal" onclick="cerrarModal('modal-perfil')">&times;</span>
+      <div id="contenido-perfil-usuario"></div>
+    </div>
+  </div>
+  <div id="modal-carrito" class="ventana-modal">
+    <div class="contenido-modal" style="max-width: 480px;">
+      <span class="cerrar-modal" onclick="cerrarModal('modal-carrito')">&times;</span>
+      <h3>Carrito de Compras</h3>
+      <div id="lista-carrito" style="max-height: 150px; overflow-y: auto; margin-top: 10px;"></div>
+      <div class="grupo-formulario" style="margin-top: 15px;">
+        <label><strong>Método de Pago:</strong></label>
+        <select id="metodo-pago" onchange="cambiarMetodoPago(this.value)" style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc;">
+          <option value="efectivo">Efectivo al retirar en Corralón</option>
+          <option value="tarjeta">Tarjeta de Crédito / Débito</option>
+          <option value="transferencia">Transferencia Bancaria (CBU / Alias)</option>
+        </select>
+      </div>
+      <div id="form-tarjeta" style="display:none; background:#f4f6f9; padding:12px; border-radius:6px; margin-bottom:12px;">
+        <div class="grupo-formulario"><label><small>Número de Tarjeta</small></label><input type="text" id="tarjeta-num" placeholder="4509 1234 5678 9010" maxlength="19"></div>
+        <div style="display:flex; gap:10px;">
+          <div class="grupo-formulario" style="flex:1;"><label><small>Vencimiento</small></label><input type="text" id="tarjeta-venc" placeholder="MM/AA" maxlength="5"></div>
+          <div class="grupo-formulario" style="flex:1;"><label><small>Código CVV</small></label><input type="password" id="tarjeta-cvv" placeholder="123" maxlength="4"></div>
+        </div>
+        <div class="grupo-formulario"><label><small>Nombre en la Tarjeta</small></label><input type="text" id="tarjeta-nombre" placeholder="JUAN PEREZ"></div>
+      </div>
+
+      <!-- CAMPOS TRANSFERENCIA -->
+      <div id="form-transferencia" style="display:none; background:#f4f6f9; padding:12px; border-radius:6px; margin-bottom:12px;">
+        <p style="font-size:0.8rem; margin-bottom:8px;"><strong>Alias CBU:</strong> <code>DON.HUMBERTO.CORRALON</code></p>
+        <div class="grupo-formulario"><label><small>Número de Comprobante / Operación</small></label><input type="text" id="transf-comprobante" placeholder="Ej: 893412049"></div>
+      </div>
+
+      <div class="total-carrito"><strong>Total a pagar: $<span id="total-precio-carrito">0</span></strong></div>
+      <button class="boton boton-primario boton-bloque" onclick="finalizarCompra()">Confirmar y Procesar Pago</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
