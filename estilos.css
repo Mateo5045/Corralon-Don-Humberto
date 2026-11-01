@@ -538,3 +538,85 @@ ul {
   .cuadricula-modulos, .cuadricula-estadisticas, .cuadricula-pie { grid-template-columns: 1fr; }
   .botones-principales { flex-direction: column; }
 }
+
+/* Accesibilidad y adaptación a pantallas pequeñas */
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+button, input, select { max-width: 100%; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid #6b9ac4;
+  outline-offset: 3px;
+}
+.boton-menu-movil {
+  display: none; border: 0; background: transparent; color: #111a2e;
+  font-size: 1.5rem; padding: 8px; cursor: pointer;
+}
+.contenido-modal { max-height: calc(100vh - 32px); overflow-y: auto; }
+
+@media (max-width: 992px) {
+  .contenedor { padding-left: 18px; padding-right: 18px; }
+  .cuadricula-modulos, .cuadricula-estadisticas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cuadricula-pie { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .item-estadistica { justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .barra-navegacion { padding: 10px 0; }
+  .contenedor-navegacion { flex-wrap: wrap; gap: 10px; }
+  .boton-menu-movil {
+    display: inline-flex; align-items: center; justify-content: center; margin-left: auto;
+  }
+  .enlaces-navegacion {
+    display: none; order: 3; flex: 0 0 100%; flex-direction: column;
+    gap: 0; padding: 8px 0; border-top: 1px solid #eef2f6;
+  }
+  .enlaces-navegacion.menu-abierto { display: flex; }
+  .enlaces-navegacion a { display: block; padding: 12px 4px; }
+  .enlaces-navegacion a.activo::after { display: none; }
+  .acciones-navegacion { order: 2; gap: 8px; }
+  .acciones-navegacion .boton { padding: 9px 12px; font-size: 0.72rem; }
+  .menu-usuario { gap: 6px; }
+  .menu-usuario .boton {
+    max-width: 145px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .seccion-principal { min-height: 410px; height: auto; padding: 65px 0; background-position: center; }
+  .contenido-principal { max-width: 100%; }
+  .contenido-principal h1 { font-size: clamp(2rem, 7vw, 2.6rem); }
+  .contenido-principal p { font-size: 1rem; }
+  .cuadricula-modulos, .cuadricula-estadisticas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .filtros-productos { align-items: stretch; }
+  .filtros-productos input, .filtros-productos select { flex: 1 1 220px; min-width: 0; }
+  .cuadricula-productos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .cuadricula-pie { gap: 24px; }
+}
+@media (max-width: 520px) {
+  .contenedor { padding-left: 14px; padding-right: 14px; }
+  .icono-marca { font-size: 1.8rem; }
+  .titulo-marca { font-size: 1.05rem; }
+  .subtitulo-marca { font-size: 0.55rem; }
+  .acciones-navegacion { flex: 0 0 100%; justify-content: space-between; }
+  .acciones-navegacion > button, #contenedor-usuario-nav { flex: 1; }
+  #contenedor-usuario-nav > button { width: 100%; }
+  .menu-usuario { justify-content: flex-end; }
+  .menu-usuario .boton:first-child { flex: 1; max-width: none; }
+  .seccion-principal { min-height: 380px; padding: 55px 0; }
+  .contenido-principal h1 { font-size: 2rem; }
+  .contenido-principal p br, .contenido-principal h1 br { display: none; }
+  .botones-principales { flex-direction: column; align-items: stretch; gap: 10px; }
+  .botones-principales .boton { width: 100%; }
+  .cuadricula-caracteristicas, .cuadricula-modulos,
+  .cuadricula-estadisticas, .cuadricula-pie { grid-template-columns: 1fr; }
+  .tarjeta-caracteristica, .tarjeta-modulo { padding: 22px 18px; }
+  .cuadricula-productos { grid-template-columns: 1fr; }
+  .imagen-producto { height: 190px; }
+  .item-estadistica { justify-content: center; }
+  .columna-pie { text-align: center; }
+  .columna-marca .marca, .enlaces-sociales { justify-content: center; }
+  .descripcion-pie { max-width: none; }
+  .contenido-modal { width: calc(100% - 24px); padding: 24px 18px; }
+  #form-tarjeta > div[style*="display:flex"] { flex-direction: column; gap: 0 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
