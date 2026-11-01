@@ -20,7 +20,10 @@
           <span class="subtitulo-marca">MATERIALES PARA LA CONSTRUCCIÓN</span>
         </div>
       </a>
-      <nav class="enlaces-navegacion">
+      <button class="boton-menu-movil" type="button" aria-label="Abrir menú" aria-expanded="false" onclick="alternarMenuMovil()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav class="enlaces-navegacion" id="menu-navegacion">
         <a href="#inicio" class="activo">INICIO</a>
         <a href="#productos">PRODUCTOS</a>
         <a href="#servicios">SERVICIOS</a>
@@ -182,9 +185,9 @@
       <div class="columna-pie">
         <h4>REDES SOCIALES</h4>
         <div class="enlaces-sociales">
-          <a href="https://facebook.com" target="_blank" class="icono-social"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://instagram.com" target="_blank" class="icono-social"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://wa.me/5493519876543" target="_blank" class="icono-social"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="icono-social"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="icono-social"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/5493519876543" target="_blank" rel="noopener noreferrer" class="icono-social"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
     </div>
@@ -200,15 +203,15 @@
         <button id="tab-registro" class="pestana" onclick="mostrarPestanaAuth('registro')">Registrarse</button>
       </div>
       <form id="form-login" onsubmit="iniciarSesion(event)">
-        <div class="grupo-formulario"><label>Usuario / Email</label><input type="text" id="login-usuario" placeholder="Ingrese su usuario o email" required></div>
-        <div class="grupo-formulario"><label>Contraseña</label><input type="password" id="login-password" placeholder="••••••••" required></div>
+        <div class="grupo-formulario"><label for="login-usuario">Usuario o correo electrónico</label><input type="text" id="login-usuario" placeholder="Ingrese su usuario o email" required></div>
+        <div class="grupo-formulario"><label for="login-password">Contraseña</label><input type="password" id="login-password" placeholder="••••••••" required></div>
         <button type="submit" class="boton boton-primario boton-bloque">Ingresar</button>
       </form>
       <form id="form-registro" style="display: none;" onsubmit="registrarUsuario(event)">
-        <div class="grupo-formulario"><label>Nombre Completo</label><input type="text" id="reg-nombre" placeholder="Juan Pérez" required></div>
-        <div class="grupo-formulario"><label>Usuario</label><input type="text" id="reg-usuario" placeholder="juanperez" required></div>
-        <div class="grupo-formulario"><label>Email</label><input type="email" id="reg-email" placeholder="juan@correo.com" required></div>
-        <div class="grupo-formulario"><label>Contraseña</label><input type="password" id="reg-password" placeholder="••••••••" required></div>
+        <div class="grupo-formulario"><label for="reg-nombre">Nombre completo</label><input type="text" id="reg-nombre" placeholder="Juan Pérez" required></div>
+        <div class="grupo-formulario"><label for="reg-usuario">Usuario</label><input type="text" id="reg-usuario" placeholder="juanperez" required></div>
+        <div class="grupo-formulario"><label for="reg-email">Correo electrónico</label><input type="email" id="reg-email" placeholder="juan@correo.com" required></div>
+        <div class="grupo-formulario"><label for="reg-password">Contraseña</label><input type="password" id="reg-password" placeholder="••••••••" required></div>
         <button type="submit" class="boton boton-primario boton-bloque">Crear Cuenta</button>
       </form>
     </div>
@@ -240,13 +243,10 @@
         </div>
         <div class="grupo-formulario"><label><small>Nombre en la Tarjeta</small></label><input type="text" id="tarjeta-nombre" placeholder="JUAN PEREZ"></div>
       </div>
-
-      <!-- CAMPOS TRANSFERENCIA -->
       <div id="form-transferencia" style="display:none; background:#f4f6f9; padding:12px; border-radius:6px; margin-bottom:12px;">
         <p style="font-size:0.8rem; margin-bottom:8px;"><strong>Alias CBU:</strong> <code>DON.HUMBERTO.CORRALON</code></p>
         <div class="grupo-formulario"><label><small>Número de Comprobante / Operación</small></label><input type="text" id="transf-comprobante" placeholder="Ej: 893412049"></div>
       </div>
-
       <div class="total-carrito"><strong>Total a pagar: $<span id="total-precio-carrito">0</span></strong></div>
       <button class="boton boton-primario boton-bloque" onclick="finalizarCompra()">Confirmar y Procesar Pago</button>
     </div>
