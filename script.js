@@ -160,7 +160,6 @@ function actualizarEstadoUsuario() {
   }
 }
 function verPerfil() {
-function verPerfil() {
   const elem = document.getElementById('contenido-perfil-usuario');
   if (usuarioActual.rol === 'admin') {
     elem.innerHTML = `
