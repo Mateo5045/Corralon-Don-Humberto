@@ -160,6 +160,7 @@ function actualizarEstadoUsuario() {
   }
 }
 function verPerfil() {
+function verPerfil() {
   const elem = document.getElementById('contenido-perfil-usuario');
   if (usuarioActual.rol === 'admin') {
     elem.innerHTML = `
@@ -171,22 +172,50 @@ function verPerfil() {
     `;
   } else {
     let historial = usuarioActual.compras.length === 0 ? '<p>No realizaste compras todavía.</p>' : usuarioActual.compras.map((c,i)=>`
-      <div style="background:#f4f6f9; padding:10px; margin-bottom:8px; border-radius:4px; text-align:left;">
-        <strong>Pedido #${i+1} (${c.fecha})</strong><br>
+      <div id="comprobante-${i}" style="background:#f4f6f9; padding:15px; margin-bottom:12px; border-radius:4px; text-align:left; border: 1px solid #ddd;">
+        <strong>Comprobante de Pedido #${i+1}</strong><br>
+        <small>Fecha: ${c.fecha}</small><br>
         Pago: <em>${c.pago}</em><br>
-        <strong>Total: $${c.total.toLocaleString()}</strong>
+        <ul style="margin: 8px 0; padding-left: 15px; font-size: 0.85rem;">
+          ${c.items.map(item => `<li>${item.nombre} x ${item.cantidad} ($${item.precio * item.cantidad})</li>`).join('')}
+        </ul>
+        <strong>Total: $${c.total.toLocaleString()}</strong><br><br>
+        <button class="boton boton-primario" style="font-size: 0.75rem; padding: 6px 12px;" onclick="imprimirComprobante('comprobante-${i}')">
+          <i class="fa-solid fa-print"></i> Imprimir Comprobante
+        </button>
       </div>
-    `).join(''); 
+    `).join('');
+    
     elem.innerHTML = `
       <h3>Mi Cuenta de Comprador</h3>
       <hr><br>
       <p><strong>Nombre:</strong> ${usuarioActual.nombre}</p>
       <p><strong>Email:</strong> ${usuarioActual.email}</p><br>
-      <h4>Historial de Compras:</h4>
-      <div style="max-height:200px; overflow-y:auto; margin-top:10px;">${historial}</div>
+      <h4>Historial y Comprobantes de Compra:</h4>
+      <div style="max-height:250px; overflow-y:auto; margin-top:10px;">${historial}</div>
     `;
   }
   abrirModal('modal-perfil');
+}
+function imprimirComprobante(idContenedor) {
+  const contenido = document.getElementById(idContenedor).innerHTML;
+  const ventanaImpresion = window.open('', '', 'height=600,width=800');
+  
+  ventanaImpresion.document.write('<html><head><title>Comprobante - Don Humberto</title>');
+  ventanaImpresion.document.write('<style>body{font-family:Montserrat,sans-serif; padding:20px; color:#333;} button{display:none;}</style>');
+  ventanaImpresion.document.write('</head><body>');
+  ventanaImpresion.document.write('<h2>Corralón Don Humberto</h2>');
+  ventanaImpresion.document.write(contenido);
+  ventanaImpresion.document.write('</body></html>');
+  
+  ventanaImpresion.document.close();
+  ventanaImpresion.focus();
+  
+  setTimeout(() => {
+    ventanaImpresion.print();
+    ventanaImpresion.close();
+  }, 500);
+
 }
 function abrirModuloAcceso(modulo) {
   if (!usuarioActual) { alert("Debes iniciar sesión con clave de administrador."); abrirModal('modal-login'); }
